@@ -129,15 +129,18 @@
 #### Amazon ElastiCache
 - **인메모리 캐싱 서비스**
 
-<font color="blue"> (DynamoDB, ElastiCache 관련 내용 서치해서 정리) </font>
+```diff
++ (DynamoDB, ElastiCache 관련 내용 서치해서 정리)
+```
 
 ## AWS 보안 : 책임 공유 모델
 - 클라우드 인프라 위의 **고객 데이터, 어플리케이션**의 보안은 **고객** 담당
 - 클라우드 **인프라 서비스** 자체에 대한 보안은 **AWS** 가 담당
 
-<font color="blue"> (뒤에서 이어서 함. 간단히 정리) </font>
-
 ## AWS 비용 최적화
+```diff
++ (뒤에서 이어서 함. 간단히 정리)
+```
 - 적절한 용량 산정
 - 구매 옵션 이해하고 잘 선택 (100% On-demand 방식이 아닌 RI, Spot 인스턴스 등을 활용)
 - 탄력적 아키텍처 : Auto Scailing
