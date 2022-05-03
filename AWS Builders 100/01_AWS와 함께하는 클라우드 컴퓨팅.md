@@ -108,7 +108,17 @@
 - AWS Shield Standard 무료 제공 : DDoS 방어
 
 
+### 데이터베이스 서비스
+#### Amazon RDS
+- **관리형 관게형 DB 서비스**
+- 다양한 DB 엔진 제공 : Amazon Aurora, MySQL, MariaDB, Oracle, SQL Server 등
+- Multi-AZ 기능(DB 이중화 기능)
+  - Master - Slave 간 자동 싱크
+#### Amazon DynamoDB
+- **관리형 NoSQL DB 서비스**
 
+#### Amazon ElastiCache
+- **인메모리 캐싱 서비스**
 
 
 
