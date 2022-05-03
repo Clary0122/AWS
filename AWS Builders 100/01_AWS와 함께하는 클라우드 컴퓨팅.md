@@ -111,15 +111,37 @@
 ### 데이터베이스 서비스
 #### Amazon RDS
 - **관리형 관게형 DB 서비스**
-- 다양한 DB 엔진 제공 : Amazon Aurora, MySQL, MariaDB, Oracle, SQL Server 등
+- 다양한 DB 엔진 제공 : PostgreSQL, Amazon Aurora, MySQL, MariaDB, Oracle, SQL Server
 - Multi-AZ 기능(DB 이중화 기능)
   - Master - Slave 간 자동 싱크
+  - Master에서 문제 발생 시 자동으로 Slave로 fail over 진행
+  - fail over 진행 시 end point 변경 없이 자동으로 처리되기 때문에 이중화 구성에 용이
+  - **요약 : 활성 DB 서버(마스터)의 데이터를 대기 서버(Slave)에 동기화하여 복제 중복 구성으로 구축**  
+  ![image](https://user-images.githubusercontent.com/79209568/166410475-4175e7cb-fa24-4d80-882a-7d00092e92bd.png)
+  
+- Read Replica
+  - DB는 대체로 쓰기 작업보다 읽기 작업이 많기 때문에 읽기 전용 인스턴스를 여러개 만들어서 부하를 분산 가능  
+  ![image](https://user-images.githubusercontent.com/79209568/166410565-9af64ea5-e64a-4e08-9706-f8fb4214c510.png)
+- 인스턴스 확장 자유로움 
 #### Amazon DynamoDB
 - **관리형 NoSQL DB 서비스**
 
 #### Amazon ElastiCache
 - **인메모리 캐싱 서비스**
 
+<span style="color:blue"> (DynamoDB, ElastiCache 관련 내용 서치해서 정리) </span>
 
+## AWS 보안 : 책임 공유 모델
+- 클라우드 인프라 위의 **고객 데이터, 어플리케이션**의 보안은 **고객** 담당
+- 클라우드 **인프라 서비스** 자체에 대한 보안은 **AWS** 가 담당
+
+<span style="color:blue"> (뒤에서 이어서 함. 간단히 정리) </span>
+
+## AWS 비용 최적화
+- 적절한 용량 산정
+- 구매 옵션 이해하고 잘 선택 (100% On-demand 방식이 아닌 RI, Spot 인스턴스 등을 활용)
+- 탄력적 아키텍처 : Auto Scailing
+- 지속적으로 인프라를 관리, 측정, 모니터링을 통해 개선해 나갈 수 있음 
+- AWS Trusted Advisor : 자동으로 비용 최적화 관련 진단이 가능
 
 
