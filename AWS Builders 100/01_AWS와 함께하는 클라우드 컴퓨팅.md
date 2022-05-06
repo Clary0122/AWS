@@ -141,12 +141,15 @@
 - Multi-AZ 기능(DB 이중화 기능)
   - Master - Slave 간 자동 싱크
   - Master에서 문제 발생 시 자동으로 Slave로 fail over 진행
-  - fail over 진행 시 end point 변경 없이 자동으로 처리되기 때문에 이중화 구성에 용이
+  - failover 진행 시 end point 변경 없이 자동으로 처리되기 때문에 이중화 구성에 용이
+  - failover 진행 시 다운 타임은 대략 1분정도의 시간이 발생되므로 사용자도 다운됨을 느낄 수 있음(장애 복구가 빨리되는 것인지 무중단은 아님)
   - **요약 : 활성 DB 서버(마스터)의 데이터를 대기 서버(Slave)에 동기화하여 복제 중복 구성으로 구축**  
   ![image](https://user-images.githubusercontent.com/79209568/166410475-4175e7cb-fa24-4d80-882a-7d00092e92bd.png)
-  
+
 - Read Replica
-  - DB는 대체로 쓰기 작업보다 읽기 작업이 많기 때문에 읽기 전용 인스턴스를 여러개 만들어서 부하를 분산 가능  
+  - DB는 대체로 쓰기 작업보다 읽기 작업이 많기 때문에 읽기 전용 인스턴스를 여러개 만들어서 부하를 분산 가능
+  - 애플리케이션 딴에서 쿼리를 구분해주는 개발 작업이 필요함(쓰기 작업은 origin, 읽기 작업은 replica로 접근하도록)
+  - replica 끼리는 end point를 공유함
   ![image](https://user-images.githubusercontent.com/79209568/166410565-9af64ea5-e64a-4e08-9706-f8fb4214c510.png)
 - 인스턴스 확장 자유로움 
 #### Amazon DynamoDB
