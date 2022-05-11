@@ -39,5 +39,9 @@
 - 하지만 데이터 변환을 위해 Python, Pyspark 개발 작업이 익숙하지 않은 고객을 위한 **Glue DataBrew 서비스**
 - **AWS Glue DateBrew** : Glue를 위한 새로운 시각적 데이터 준비 도구. 코드 작업 없이 데이터를 정리 및 정규화 (데이터 준비 시간 최대 80% 절약 가능)
 
+## 데이터를 이용한 머신러닝 - AWS Forecast
+- 완전 관리형 시계열 예측 작업 서비스
+- 데이터 세트 준비 - predictor 설정(horizon, Auto predictor 설정) - 예측 실행(결과 퍼센트 기본)
+
 # 전체 플로우
 ![image](https://user-images.githubusercontent.com/79209568/167692403-d2e3863d-7000-4103-8e70-8c5d941e82f3.png)
