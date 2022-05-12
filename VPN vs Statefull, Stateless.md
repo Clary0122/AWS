@@ -1,9 +1,9 @@
-# VPN vs Statefull, Stateless 
+# VPN vs Stateful, Stateless 
 
-## Statefull, Stateless
+## Stateful, Stateless
 - 클라이언트의 상태 정보를 서버에 저장하느냐 마느냐로 구분 
 
-### Statefull
+### Stateful
 - 서버와 클라이언트 간 세션의 상태에 기반하여 클라이언트에 응답을 보냄
 - 세션 상태를 포함한 클라이언트와의 세선정보를 서버에 저장
 - 대표적 : TCP 
