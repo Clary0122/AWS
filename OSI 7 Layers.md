@@ -6,9 +6,9 @@
 ## 종류
 ```
 1  Physical - 물리 (케이블, 리피터, 허브)
-2  Datalink - 데이터링크 (Ethernet, Frame Relay)
+2  Datalink - 데이터링크 (Ethernet)
 3  Network - 네트워크 (IP)
-4  Transport - 전송 (TCP, UDP, SCTP)
+4  Transport - 전송 (TCP, UDP)
 5  Session - 세션 (NetBIOS, SAP, SDP)
 6  Presentation - 표현 (ASCII, MPEG, JPEG, MIDI)
 7  Application - 응용 (HTTP, FTP, SMTP, Telnet)
