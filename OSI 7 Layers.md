@@ -58,6 +58,8 @@ ICMP(패킷전달 에러의 보고 및 진단),
   - **비연결형 통신** : 빠르고 효율적으로 전달하기 위해 확인 절차 없이 일방적으로 데이터 보냄, [UDP](#UDP) 프로토콜 사용  
 ![image](https://user-images.githubusercontent.com/79209568/168526698-3bcfe6fd-3edc-4944-993c-f133be2b7eb9.png)
 
+###
+
 
 <hr>
 
