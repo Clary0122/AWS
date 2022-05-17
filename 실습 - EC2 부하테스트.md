@@ -38,6 +38,20 @@
 - 상태 검사  
   
   ![image](https://user-images.githubusercontent.com/79209568/168717143-1ec0293a-7297-41e3-b65e-e041a75f6648.png)
+  > ##### 변경 함!
+  > - 싱테 검사 경로 `/health/healthcheck.html`로 변경 후,  
+  >   ![image](https://user-images.githubusercontent.com/79209568/168734995-accd6c99-d294-44ec-92b6-5dce045faa2f.png)
+  > - 아파치 루트 위치로 이동 : `cd /var/www/html/`
+  > - health 디렉터리 생성 : `sudo mkdir health`
+  > - healthcheck.html 파일 생성 : `sudo vi healthcheck.html`
+  > ##### 확인
+  > - 페이지 체크  
+  >   ![image](https://user-images.githubusercontent.com/79209568/168735188-393ef578-2fb5-40c9-bae7-d7b310681494.png)
+  > - 타겟그룹 상태 확인  
+  >   ![image](https://user-images.githubusercontent.com/79209568/168735332-df7f5564-7394-41b7-a6ad-6915d2b67e96.png)
+
+
+
 - 대상 등록  
   
   ![image](https://user-images.githubusercontent.com/79209568/168717329-d2672ea1-849a-44e6-9b6c-a6c6dee2b9f6.png)
@@ -127,4 +141,11 @@
 ### 정리
 |-|11시 2분|11시 10분|
 |--|--|--|
-|대답 응답 시간(밀리세컨)|-||
+|대답 응답 시간(밀리세컨)|-|0.514ms|
+|요청(개수)|-|1개|
+|HTTP 4XXs(개수)|-|1개|
+|ELB 4XXs(개수)|1개|-|
+|활성 연결 개수(개수)|1개|2개|
+|새 연결 개수(개수)|2개|2개|
+|처리된 바이트(바이트)|588 bytes|4226 bytes|
+|사용된 Load Balancer 용량 단위(개수)|0.00002222222222222222 개|0.00002222222222222222 개|
