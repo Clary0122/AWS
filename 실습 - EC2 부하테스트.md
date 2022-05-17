@@ -85,7 +85,7 @@
 
  
 ## ALB 모니터링 확인
-- 대답 응답 시간 : 0.514 ms
+- 대답 응답 시간 : 0.514 ms (11시 10분)
   
   ![image](https://user-images.githubusercontent.com/79209568/168718651-df6779e0-b683-4ca4-9ca6-3ede4ce8a42c.png)
 
@@ -100,25 +100,22 @@
   ![image](https://user-images.githubusercontent.com/79209568/168719036-463282ef-1efc-4f8d-944e-4c251ef77591.png)
 - 활성 연결 개수
   - 1개 (11시 2분)  
-    
-    ![image](https://user-images.githubusercontent.com/79209568/168719239-702995f4-bcbd-43b3-af19-9156113a744f.png)
   - 2개 (11시 10분)  
-    
+    ![image](https://user-images.githubusercontent.com/79209568/168719239-702995f4-bcbd-43b3-af19-9156113a744f.png)
     ![image](https://user-images.githubusercontent.com/79209568/168719264-4d86ca11-751d-417e-828f-efa668eca67c.png)
 - 새 연결 개수
   - 2개 (11시 2분)  
-    
-    ![image](https://user-images.githubusercontent.com/79209568/168719398-729151af-f1b0-4a06-b3f0-7d41534af7c8.png)
   - 2개 (11시 10분)  
     
+    ![image](https://user-images.githubusercontent.com/79209568/168719398-729151af-f1b0-4a06-b3f0-7d41534af7c8.png)
+
     ![image](https://user-images.githubusercontent.com/79209568/168719418-8c47abe3-9108-4546-9ba3-2eaf7f99e4c0.png)
 
 - 처리된 바이트
   - 588 bytes (11시 2분)  
-    
-    ![image](https://user-images.githubusercontent.com/79209568/168719470-bb754dbf-1260-436d-a651-b123ea51c39e.png)
   - 4226 bytes (11시 10분)  
-  
+    ![image](https://user-images.githubusercontent.com/79209568/168719470-bb754dbf-1260-436d-a651-b123ea51c39e.png)
+
     ![image](https://user-images.githubusercontent.com/79209568/168719486-92392efe-1171-4f76-9b3d-289e900c7e18.png)
 
 - 사용된 Load Balancer 용량 단위
@@ -126,3 +123,8 @@
   - 0.00002222222222222222 개 (11시 10분)  
     
     ![image](https://user-images.githubusercontent.com/79209568/168719536-9c3ff130-4c54-4cca-927f-8933c92b2054.png)
+
+### 정리
+|-|11시 2분|11시 10분|
+|--|--|--|
+|대답 응답 시간(밀리세컨)|-||
