@@ -34,5 +34,12 @@
 - 두 번째 : 실제로 index 파일이 웹서버에 존재하지 않기 때문에 **URL은 아님**. 하지만 서버 내부에서 이를 처리하여 결국 index.html을 가리키기 때문에 **URI**
 
 
-![image](https://user-images.githubusercontent.com/79209568/168704541-bec2adee-277d-419e-9b00-f8aa5753ad2d.png)
-- URI : http://www.google.co.kr:80/
+![image](https://user-images.githubusercontent.com/79209568/168706806-ae3c95b3-d2a7-4981-9987-705fa54f8def.png)
+
+### URI 구문
+- 스키마 혹은 프로토콜 : `http://`
+- 도메인 이름(Authority) : `www.google.co.kr`
+- 포트 : `80`
+- 경로 : `clary/index.php`
+- 쿼리 : `?page=3`
+- 프래그먼트 : `#Rnfwoa`
