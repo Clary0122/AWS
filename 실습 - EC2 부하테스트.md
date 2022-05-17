@@ -29,7 +29,21 @@
   
   ![image](https://user-images.githubusercontent.com/79209568/168716115-53128117-9e39-4e2e-a7b8-d7d675be3465.png)
 ### 보안그룹 선택
-- VPC 생성 시 만들었던 보안 그룹 선택
+- 보안그룹 생성
+  - 기본 세부 정보
+    ![image](https://user-images.githubusercontent.com/79209568/168768215-743a0658-a940-4104-94aa-175b23ca0067.png)
+- 인바운드 규칙
+  - ALB는 인터넷에서 모두 받아와야하므로 0.0.0.0/0으로 열어놓는다  
+    
+    ![image](https://user-images.githubusercontent.com/79209568/168768964-ce598b8c-79ff-4f9a-af0a-8e1896f88b19.png)
+
+
+> #### EC2 인스턴스의 보안그룹!!
+> - 인바인드 규칙의 소스를 아이피가 아닌 ALB의 보안 그룹으로 설정해야 IGW -\> ALB -\> EC2 웹서버의 경로로 들어간다.
+>   
+>   ![image](https://user-images.githubusercontent.com/79209568/168770397-067e7fe1-1de7-4aa1-ae5e-a312211d3dfa.png)
+
+
 
 ### 리스너 및 라우팅
 - 대상 그룹 생성 클릭  
@@ -49,13 +63,7 @@
   > - 아파치 루트 위치로 이동 : `cd /var/www/html/`
   > - health 디렉터리 생성 : `sudo mkdir health`
   > - healthcheck.html 파일 생성 : `sudo vi healthcheck.html`
-  > ##### 확인
-  > - 페이지 체크  
-  >   ![image](https://user-images.githubusercontent.com/79209568/168735188-393ef578-2fb5-40c9-bae7-d7b310681494.png)
-  > - 타겟그룹 상태 확인  
-  >   ![image](https://user-images.githubusercontent.com/79209568/168735332-df7f5564-7394-41b7-a6ad-6915d2b67e96.png)
-
-
+  > ##### [헬스체크확인](#헬스-체크-확인)
 
 - 대상 등록  
   
@@ -96,13 +104,26 @@
     ![image](https://user-images.githubusercontent.com/79209568/168714785-62137b9f-67ce-42fc-b716-975213e47ce5.png)
   - 인바인트 규칙 편집 \> 규칙 추가  
     
-    ![image](https://user-images.githubusercontent.com/79209568/168714918-3318a9f5-bc51-431f-8b85-3b407e8d2d5e.png)
+    - 인바인드 규칙의 소스를 아이피가 아닌 ALB의 보안 그룹으로 설정해야 IGW -\> ALB -\> EC2 웹서버의 경로로 들어간다.    
+      ![image](https://user-images.githubusercontent.com/79209568/168770397-067e7fe1-1de7-4aa1-ae5e-a312211d3dfa.png)
 - Apache 접속
-  - EC2 IP로 접속하면 테스트 페이지가 연결됨 (`http://54.64.211.25/`)
-    
-    ![image](https://user-images.githubusercontent.com/79209568/168715076-29bcd36b-f331-4fdb-b182-60dc150cc6c6.png)
+  - 로드밸런서의 DNS 이름으로 접속하면 테스트 페이지가 연결됨  
+    ![image](https://user-images.githubusercontent.com/79209568/168771515-09530740-6993-459e-aced-45c50e3794f4.png)
+  - 접속 확인  
+    ![image](https://user-images.githubusercontent.com/79209568/168771738-9e05189f-5fef-4653-a33b-6c08989bbef1.png)
 
- 
+
+## 확인
+- 페이지 체크  
+  ![image](https://user-images.githubusercontent.com/79209568/168771964-503c27e7-60cd-44f3-b779-e3e4a708651d.png)
+
+- 타겟그룹 상태 확인  
+  ![image](https://user-images.githubusercontent.com/79209568/168735332-df7f5564-7394-41b7-a6ad-6915d2b67e96.png)
+
+<hr> 
+
+↓ 아래는 뻘짓. 왜냐면 ALB를 통하지 않고 ec2로 바로 접속한 상태를 모니터링 했다^^
+
 ## ALB 모니터링 확인
 - 대답 응답 시간 : 0.514 ms (11시 10분)
   
