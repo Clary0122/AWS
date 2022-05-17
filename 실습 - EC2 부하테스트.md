@@ -106,14 +106,16 @@
     
     - 인바인드 규칙의 소스를 아이피가 아닌 ALB의 보안 그룹으로 설정해야 IGW -\> ALB -\> EC2 웹서버의 경로로 들어간다.    
       ![image](https://user-images.githubusercontent.com/79209568/168770397-067e7fe1-1de7-4aa1-ae5e-a312211d3dfa.png)
-- Apache 접속
-  - 로드밸런서의 DNS 이름으로 접속하면 테스트 페이지가 연결됨  
-    ![image](https://user-images.githubusercontent.com/79209568/168771515-09530740-6993-459e-aced-45c50e3794f4.png)
-  - 접속 확인  
-    ![image](https://user-images.githubusercontent.com/79209568/168771738-9e05189f-5fef-4653-a33b-6c08989bbef1.png)
+
 
 
 ## 확인
+### 아파치 접속
+- 로드밸런서의 DNS 이름으로 접속하면 테스트 페이지가 연결됨  
+  ![image](https://user-images.githubusercontent.com/79209568/168771515-09530740-6993-459e-aced-45c50e3794f4.png)
+- 접속 확인  
+  ![image](https://user-images.githubusercontent.com/79209568/168771738-9e05189f-5fef-4653-a33b-6c08989bbef1.png)
+### 헬스 체크 확인
 - 페이지 체크  
   ![image](https://user-images.githubusercontent.com/79209568/168771964-503c27e7-60cd-44f3-b779-e3e4a708651d.png)
 
