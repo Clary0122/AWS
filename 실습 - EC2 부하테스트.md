@@ -1,7 +1,7 @@
 # EC2 부하테스트
 > #### \<INDEX>
 > 1. [EC2 생성]()
-> 2. [EC2 서버에 Apache 설치](#EC2 서버에 Apache 설치)
+> 2. [EC2 서버에 Apache 설치](#EC2-서버에-Apache-설치)
 > 3. [ALB 생성]()
 
 ## EC2 생성
