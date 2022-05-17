@@ -5,6 +5,11 @@
 > 3. [EC2 서버에 Apache 설치](#EC2-서버에-Apache-설치)
 > 4. [ALB 모니터링 확인](#ALB-모니터링-확인)
 
+![image](https://user-images.githubusercontent.com/79209568/168754961-c12cf825-1efc-47d6-ba76-2c4097196b25.png)
+
+![image](https://user-images.githubusercontent.com/79209568/168755027-e2de6fcf-2251-43da-acd4-db080fc70fe5.png)
+
+
 ## EC2 생성
 
 ## ALB 생성
