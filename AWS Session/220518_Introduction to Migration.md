@@ -1,7 +1,7 @@
 > \<INDEX>
 > - [Journey to Cloud](#Journey-to-Cloud)
 > - [역량 관점으로 보는 클라우드 Assess 방법론](#역량-관점으로-보는-클라우드-Assess-방법론)
-> - [성공적인 migration + modernization](#성공적인-migration-+-modernization)
+> - [성공적인 migration + modernization](#성공적인-migration-modernization)
 > - [AWS All-in migration 소개](#AWS-All-in-migration-소개)
 
 # Journey to Cloud
@@ -79,7 +79,7 @@
 - 이러한 질문에는 점수가 매겨지며, 대규모 마이그레이션 및 디지털 전환에 대한 조직의 준비 상태를 평가하는 데 도움이 됨.
 - 고객사가 잘 해줘야 마이그레이션의 속도 효율성이 높아짐
 
-# 성공적인 migration + modernization
+# 성공적인 migration modernization
 ## Simple three-step approach
 ```
 경험
@@ -117,3 +117,5 @@
   - 2) define team model and agile work streams - 클라우드 마이그레이션 진행 협의체 필요
  
 # AWS All in migration 소개
+- 모더나제이션에서는 무조건 애자일 방법으로!
+- mobilize 단계를 매우 큰 비중으로 가져감
