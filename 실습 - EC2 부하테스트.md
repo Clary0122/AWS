@@ -82,7 +82,7 @@
 - SSH 서버로 AWS EC2에 접속(mobaXterm 사용)  
   
   ![image](https://user-images.githubusercontent.com/79209568/168714275-f6538268-8389-4296-b6cb-e4d0182fa51d.png)
-- 모든 소프트웨어 패키지를 최신 상태로 업데이트 (처음 한 번)
+- ~~모든 소프트웨어 패키지를 최신 상태로 업데이트~~ - **절대 하지말기**
   ```
   sudo yum update -y
   ```
