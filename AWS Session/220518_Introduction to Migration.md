@@ -1,8 +1,8 @@
 > \<INDEX>
 > - [Journey to Cloud](#Journey-to-Cloud)
-> - [역량 관점으로 보는 클라우드 Access 방법론](#역량-관점으로-보는-클라우드-Access-방법론)
-> - 성공적인 migration + modernization
-> - AWS All-in migration 소개
+> - [역량 관점으로 보는 클라우드 Assess 방법론](#역량-관점으로-보는-클라우드-Assess-방법론)
+> - [성공적인 migration + modernization](#성공적인-migration-+-modernization)
+> - [AWS All-in migration 소개](#AWS-All-in-migration-소개)
 
 # Journey to Cloud
 ## 1. Project
@@ -20,6 +20,7 @@
   - 대형 마이그레이션에서 CCoE를 만들어야함
   - 기업의 클라우드 여정을 리드하고 지원하는 클라우드 전문성 보유 조직
   - CBO(Cloud Business Office; 돈 관련, 경영진 요구사항 충족), CPE(Cloud Platform Engineering; 아키텍처, 보안 담당)
+    - CPE : 전사 표준을 패키지화하고 지속적으로 향상시켜 클라우드 서비스를 self-servie화 하여 클라우드 사용자들이 손쉽게 사용할 수 있도록 함
 - Bring in a Partner
 - Train, Gain : 기능 자격증을 따자
 - 플랜을 그 때 상황에 맞춰서 원칙을 가지고 바꿀 수 있어야 함
@@ -43,7 +44,7 @@
 > Keyword : 7R, 목적 & 원칙, 클라우드 가치(비용절감, 업무생산성, 운영탄력성, 비즈니스민첩성)
 
 
-# 역량 관점으로 보는 클라우드 Access 방법론
+# 역량 관점으로 보는 클라우드 Assess 방법론
 ## Level of Outcome
 - 다섯가지 카테고리
   - Ativity : 그냥 구축
@@ -72,17 +73,47 @@
 #### CMA
 - 마이그레이션 프로젝트를 문제없이 진행할 수 있는지 6가지 영역의 히트맵으로 확인 가능한 진단 도구
 
+#### MRA 
+- Migration Readiness Assessment
+- AWS CAF(클라우드 채택 프레임워크) 관점에 대한 일련의 질문으로 구성 됨 
+- 이러한 질문에는 점수가 매겨지며, 대규모 마이그레이션 및 디지털 전환에 대한 조직의 준비 상태를 평가하는 데 도움이 됨.
+- 고객사가 잘 해줘야 마이그레이션의 속도 효율성이 높아짐
 
+# 성공적인 migration + modernization
+## Simple three-step approach
+```
+경험
+  |                        migrate & modernize
+  |
+  |            mobilize
+  |   assess           
+  ---------------------------------------------- 시간
+```
+- assess : 비즈니스 및 IT 변화의 필요성 및 정당성 확보
+- mobilize : 경험 기반의 마이그레이션 실행 준비
+- migrate & modernize : 대규모 마이그레이션 진행 및 modernization
 
+### Assess
+- rapid discovery, TCO report, **교육!**, Migration reediness Assessment
+- 꽤 긴 시간 소요
+- Assess 단계가 부족하면 프로젝트 비용초과, 인적자원 부족 등
+#### Migration reediness Assessment
+- 대규모 클라우드 마이그레이션 준비 상태 및 변화 준비 상태 측정
+- 워크샵 방식으로 진행
+- 주요 결과물
+  - migration 적합도 평가 결과(이해도 , 활용도 등)
+  - 예상되는 문제점 
+  - 총점 과제도출
 
+#### TCO 분석
+- Discovery Tool 사용을 통한 좀 더 정확한 마이그레이션 대상 선정
+- TCO분석을 통한 비용절감 방안 검토
+- 내부 경영진 보고를 위한 클라우드 마이그레이션 상세 비용 분석 지원 가능
 
-
-
-
-
-
-
-
-
-
-
+### Mobilize
+- 경험을 기반으로 **실행계획**을 수립. 얼만큼 AWS의 서비스로 초석을 다지는지
+- 중요!
+  - 1) **7 R 패턴**을 어떻게 가져갈지
+  - 2) define team model and agile work streams - 클라우드 마이그레이션 진행 협의체 필요
+ 
+# AWS All in migration 소개
