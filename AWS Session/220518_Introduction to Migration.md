@@ -1,6 +1,6 @@
 > \<INDEX>
 > - [Journey to Cloud](#Journey-to-Cloud)
-> - 역량 관점으로 보는 클라우드 Assess 방법론
+> - [역량 관점으로 보는 클라우드 Access 방법론](#역량-관점으로-보는-클라우드-Access-방법론)
 > - 성공적인 migration + modernization
 > - AWS All-in migration 소개
 
@@ -41,3 +41,48 @@
 - **비즈니스 민첩성** : 개발 및 출시가 매우 빠름
 
 > Keyword : 7R, 목적 & 원칙, 클라우드 가치(비용절감, 업무생산성, 운영탄력성, 비즈니스민첩성)
+
+
+# 역량 관점으로 보는 클라우드 Access 방법론
+## Level of Outcome
+- 다섯가지 카테고리
+  - Ativity : 그냥 구축
+  - Technology Capability
+  - Technology Benefit
+  - Business capability
+  - Business Benefits
+- AWS CBO : Biz IT, CXO 와의 Alignment 부족으로 인하여 단순 기능 구현 혹은 기술 역량 확보 수준으로 과제가 수행되는 경우 발생 -> AWS 서비스를 통해 outcome 은 단지 기능 구현을 넘어서 기술 역량 확보 더 나아가 비즈니스 역량 및 비즈니스 베네핏을 실현하는 것을 지향
+
+## Cloud Adoption Framework
+- AWS에서 수행하는 모든 사업 = CAF
+- 보장되지 않는 클라우드 도입 :클라우드 교착상태, polot stall, cloud chaos ,??
+- AWS 경험과 best practice를 기반으로 고객의 digital transformation을 지원. 또한 고객의 innovative한 aws서비스를 사용을 통해서 비즈니스 아웃컴 확보를 가속화 지원
+- **6가지 영역** : 클라우드를 도입하기 위해 준비해야할 영역, 고객들이 잘 잡고 가는지 확인을해야 함
+  - **business**(1위)
+  - **people**(2위) : 사람,조직 디자인(기존의 온프레미스 조직과 똑같으면 안됨)
+  - **governace**(5위)
+  - **platform**(3위)
+  - **security**(4위)
+  - **operations**(6위)
+  - 프로젝트 중 고객사가 가장 문제를 많이 느끼는 순위 : 비지니스, 사람 문제를 우리도 알고 고민해봐야함
+
+### AWS 방법론 비교 : CMA, CAF, MRA
+- 6가지의 영역을 가지고 **진단**을 해본다
+
+#### CMA
+- 마이그레이션 프로젝트를 문제없이 진행할 수 있는지 6가지 영역의 히트맵으로 확인 가능한 진단 도구
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
