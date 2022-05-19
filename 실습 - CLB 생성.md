@@ -1,3 +1,16 @@
+> \<INDEX>
+> - [CLB 생성](#CLB-생성)
+>   - [Load Balancer 정의](#1.-Load-Balancer-정의)
+>   - [보안-그룹-할당](2. 보안 그룹 할당)
+>   - [보안 설정 구성](3. 보안 설정 구성)
+>   - [상태 검사 구성](4. 상태 검사 구성)
+>   - [EC2 인스턴스 추가](5. EC2 인스턴스 추가)
+>   - [태그 추가](6. 태그 추가)
+>   - [검토](7. 검토)
+> - [EC2와 연결](EC2와 연결)
+> - [접속 확인](접속 확인)
+> - [정리](정리)
+
 # CLB 생성
 ## 1. Load Balancer 정의
 ### 기본 구성
@@ -99,6 +112,24 @@
 ![image](https://user-images.githubusercontent.com/79209568/169189639-3dfa5dd4-3e42-47df-902f-567c3743851e.png)
 
 # EC2와 연결
+![image](https://user-images.githubusercontent.com/79209568/169206005-694be8cc-3e4a-4196-bec6-82e0c437af1b.png)
+> - CLB의 보안그룹의 인바둔드 규칙이 `HTTP 80포트`, `HTTPS 443포트`이므로 **EC2 인스턴스의 보안그룹 인바운드 규칙도 추가**해줘야 한다.
+  
+![image](https://user-images.githubusercontent.com/79209568/169206432-eb4b9d82-6896-4885-87a9-91b4f3ddfbf8.png)
+
+# 접속 확인
+- ALB 생성하며 설치했던 EC2의 아파치[✔과정보러가기](https://github.com/Clary0122/AWS/blob/main/%EC%8B%A4%EC%8A%B5%20-%20EC2%20%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8.md#ec2-%EC%84%9C%EB%B2%84%EC%97%90-apache-%EC%84%A4%EC%B9%98) 서버로 NLB를 통해 잘 접속되는지 확인
+- NLB의 DNS Name 복사  
+  ![image](https://user-images.githubusercontent.com/79209568/169209112-3bd2221b-c132-411e-9e88-7e5f4034c14f.png)
+
+- 확인  
+  ![image](https://user-images.githubusercontent.com/79209568/169210773-d52233f9-8d99-4ec9-b416-efcbc0627cb5.png)
+
+- 뒤에 `health/healthcheck.html`을 추가해서 html 파일이 출력되는 지 확인
+
+# 정리
+![image](https://user-images.githubusercontent.com/79209568/169210031-5f88f06a-ecc2-486c-8175-24d022d4fa2b.png)
+
 
 <hr>
 
