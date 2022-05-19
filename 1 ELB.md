@@ -64,6 +64,9 @@
 |IP주소가 변동되기 때문에 클라이언트에서 액세스 할 ELB의 DNS Name을 이용해야 함|할당한 Elastic IP를 Static IP로 사용 가능하여 DNS Name과 IP 주소 모두 사용이 가능|
 |Name Server 또는 Route 53에서 CNAME을 사용해야 Domain Name 연동이 가능|Name Server 또는 Route 53에서 A레코드 사용이 가능|
 
+![image](https://user-images.githubusercontent.com/79209568/169177932-a22ac8e3-a17a-4cd3-a5e5-1dd200162d40.png)
+
+
 <hr>
 
 > ### 교차영역 로드밸런싱
