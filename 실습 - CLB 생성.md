@@ -112,10 +112,12 @@
 ![image](https://user-images.githubusercontent.com/79209568/169189639-3dfa5dd4-3e42-47df-902f-567c3743851e.png)
 
 # EC2와 연결
-![image](https://user-images.githubusercontent.com/79209568/169206005-694be8cc-3e4a-4196-bec6-82e0c437af1b.png)
+![image](https://user-images.githubusercontent.com/79209568/169435541-07367535-9e49-413d-ba36-c68719f59bde.png)
+
 > - CLB의 보안그룹의 인바둔드 규칙이 `HTTP 80포트`, `HTTPS 443포트`이므로 **EC2 인스턴스의 보안그룹 인바운드 규칙도 추가**해줘야 한다.
+> - 하지만 리스너 구성할 때 HTTPS/443도 대상 프로토콜을 HTTP/80으로 했기 때문에 인바운드 규칙에 HTTP/80으로 하나만 추가해도 된다.
   
-![image](https://user-images.githubusercontent.com/79209568/169206432-eb4b9d82-6896-4885-87a9-91b4f3ddfbf8.png)
+![image](https://user-images.githubusercontent.com/79209568/169436087-78efc113-78ca-41da-9b39-5fc381582373.png)
 
 # 접속 확인
 - ALB 생성하며 설치했던 EC2의 아파치[✔과정보러가기](https://github.com/Clary0122/AWS/blob/main/%EC%8B%A4%EC%8A%B5%20-%20EC2%20%EB%B6%80%ED%95%98%ED%85%8C%EC%8A%A4%ED%8A%B8.md#ec2-%EC%84%9C%EB%B2%84%EC%97%90-apache-%EC%84%A4%EC%B9%98) 서버로 NLB를 통해 잘 접속되는지 확인
