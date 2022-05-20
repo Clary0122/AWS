@@ -109,6 +109,35 @@ M4.4xlarge (0.984) M4.xxlarge (0.246) 비용이 1/4로 줄어듦
 - 할인율 적용 순서
   - Zonal RI, Regional non size flexible RI ... -> SP
 
+<hr>
 
 
+payer를 나눌 수록 비용이 작아짐
+s3, cloud front등 뭐지..
 
+org내에 credit도 share 가능 (쉐어 안하고 다음달에 쓰고 싶으면 sharing 기능을 꺼야 함)
+
+## Billing
+- Cost categories에서 각 인스턴스 내에 어떤 Org가 (Tag로 묶어놓음)사용을 많이 했는지 확인 가능
+- Cost allocation tags 
+  - 비용 할당 태그를 활성화하면, AWS는 비용 할당 태그를 이용해 비용 할당 보고서의 리소스 비용을 정리하기 때문에 사용자는 쉽게 AWS 비용을 분류하고 추적 가능
+
+CUDOS : 클라우드 포메이션 템플릿?
+
+![image](https://user-images.githubusercontent.com/79209568/169466783-5b5b3fe2-61db-4d6f-b810-6bfe0a18ac7f.png)
+
+### 시나리오
+1. 꾸준히 들어오는 서비스
+2. TPPS API 서비스, bursty
+
+> 비용 계산 어떻게?
+
+1. EC2 구성이 낫다
+2. Lambda + API Gate way 구성이 낫다.
+
+<hr>
+
+data transfer 비용??
+
+비용 팁
+개발 - rds, ec2를 다른 az에 -> 한 az에 해야 비용절약
