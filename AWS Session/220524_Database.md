@@ -53,8 +53,9 @@ wwarm cache on database
   - UNDO : 되돌아가기
 - Crash Recovery
 
-### Traditional Dtatbase Architecture
-?
+### Traditional Database Architecture
+- Increase I/O bandwidth
+- Decrease number of I/Os consumed
 ### Aurora approach 
 #### Log is the database
 - 로그를 기반으로 데이터 베이스에 대한 데이터 정합성 보장
@@ -79,7 +80,7 @@ multi tenant, multi attach 실제 데이터가 다른 서비스 노드(읽기 �
 - 로그가 스토리지에 들어가서 핫 로그로 들어가서 잘 들어갔다고 디비 인스턴스에 ACK 커맨드를 날림(싱크로 진행)
 - oraganize records and identify gaps in log
 - gossip with peers to fill in holes
-- **peer yo peer gosship**
+- **peer to peer gosship**
 
 #### read replicas are dedicated to reads
 - 기존
