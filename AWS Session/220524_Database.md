@@ -2,6 +2,7 @@
 > \<INDEX>
 > 1. [Purpose-built databases](##purpose-built-databases)
 > 2. [Amazon Aurora](#Amazon-Aurora)
+> 3. []()
 
 
 ## Purpose-built databases
@@ -92,12 +93,75 @@ multi tenant, multi attach 실제 데이터가 다른 서비스 노드(읽기 �
   - multi-az storage가 있어서 메모리 영역에서 로그?만 넘기기 때문에(page cache update) 읽기 워크로드만 100% 쓸 수 있음
   - shared storage
 
+<hr>
+### Database workload Analysis
+- Refactor : rds - aurora mysql, rds-aurora postegresQL, dynamodb
+- replatform : oracle zzzzzz
 
+### Database 
+- Rehost
+  - lift and shift
+  - smae datatbase engine and cod
+- Replatform
+  - change database engie
+  - convet the database and 
+- Rehost
 
+## Database migragion journey
+1. analysis 
+2. schema objects 
+3. data migration 
+4. application code 
+5. testing : 대부분의 시간이 필요
+6. cutover : 가장 적은 시간 필요
 
+### Resources and skills required
+- Database expertise is requiired : Working knowlege of target database engine
+- Basic networking knowledge : Familiarity with AWS VPC concepts
+- AWS knowledge is reqired
+- Software architecture knowlege is an advantage
 
+### Understand your network
+- 데이터센터를 클라우드로 마이그레이션 하는 것이기 때문에 대역폭이 달라짐
+- 돈을 써서 빠르게 하는 것인지, 적당한 돈으로 적당히 빠른 속도로 하는 것인지 결정해야 함
 
+### 고객 요구사항
+- downtime 얼마나? 등
+- 다운타임은 적었으면 좋겠지만 데이터 양이 많고 대역폭이 좁은 상태면 고객과의 협의 필요
 
+### Create your target schema using AWS services
+#### DMS
+- 단순 데이터 전환이 아닌 CDC 방식으로 스트림 형식. 아파치 카프카? 각 디비 별로 커낵터로 변경사항을 캡쳐하고 내부에 있는 카프카를 통해 큐를 쏴서 어플리케이션 내부에서 어디로 데이터를 보낼지 결정
+- CDC 솔루션 : 데이터베이스 내에 변경되는 내용들을 엔진이 다른 DB에 쿼리로 적용할 수 있는 솔루션 (각 DB 별로 다른 로그 기록 형식을 분석해서 다른 DB의 쿼리로 적용시킨다.)
+- 장점
+  - 설정이 간단
+  - DB 별 사전에 설정하는 것이 필요하긴 하지만 DMS를 사용하기 위한 설정은 필요없음
+  - 마이그레이션, 혹은 CDC 솔루션에 사용되는 서비스
+#### SCT (Schema Conversion Tool)
+- For heterogeneous migrations.
+- 데이터베이스 종류가 다르게 마이그레이션 하는 경우 문제없이 전환할 수 있을지 검증하여 레포팅 해주는 툴
+- 이런 컬럼은 변경이 불가. 이런 컬럼은 변경 가능하지만 설정 필요. 이런식으로
+- 마이그레이션의 복잡성, 공수? 확인할 수 있는 툴
+
+### Replication instance
+- dedicated ec2 instance
+- public or privvate IP address
+- Task execution  
+
+### Migration Task
+- Replication instance에 많은 task를 올릴지, Replication instance의 수를 늘려서 task를 나눌지 성능에 따라 결정
+
+![image](https://user-images.githubusercontent.com/79209568/169954920-89d9a414-2e2b-4b3e-8690-b03993f0a7c3.png)
+
+![image](https://user-images.githubusercontent.com/79209568/169959138-61a9b4e7-23bb-4476-8f79-e092e8985b41.png)
+
+![image](https://user-images.githubusercontent.com/79209568/169959425-04ddd8ce-6408-48b3-b9bb-892104d2f20d.png)
+
+![image](https://user-images.githubusercontent.com/79209568/169982586-536f59d1-788d-4a9f-808a-3f4a0cfe8f31.png)
+
+![image](https://user-images.githubusercontent.com/79209568/169983086-61ac1faa-7a0b-4a3d-a7b2-3f4c24a421c2.png)
+
+![image](https://user-images.githubusercontent.com/79209568/169983204-b65e2a3b-67ce-454f-b688-21ab631963d8.png)
 
 
 
