@@ -2,7 +2,7 @@
 > \<INDEX>
 > 1. [Purpose-built databases](##purpose-built-databases)
 > 2. [Amazon Aurora](#Amazon-Aurora)
-> 3. []()
+> 3. [Workshop](#Workshop)
 
 
 ## Purpose-built databases
@@ -94,6 +94,7 @@ multi tenant, multi attach 실제 데이터가 다른 서비스 노드(읽기 �
   - shared storage
 
 <hr>
+
 ### Database workload Analysis
 - Refactor : rds - aurora mysql, rds-aurora postegresQL, dynamodb
 - replatform : oracle zzzzzz
@@ -151,22 +152,23 @@ multi tenant, multi attach 실제 데이터가 다른 서비스 노드(읽기 �
 ### Migration Task
 - Replication instance에 많은 task를 올릴지, Replication instance의 수를 늘려서 task를 나눌지 성능에 따라 결정
 
+
+<hr>
+
+# Workshop
+## Oracle to Amazon Aurora (PostgreSQL)
+> [**Workshop URL**](https://catalog.us-east-1.prod.workshops.aws/workshops/77bdff4f-2d9e-4d68-99ba-248ea95b3aca/en-US)
+
 ![image](https://user-images.githubusercontent.com/79209568/169954920-89d9a414-2e2b-4b3e-8690-b03993f0a7c3.png)
 
 ![image](https://user-images.githubusercontent.com/79209568/169959138-61a9b4e7-23bb-4476-8f79-e092e8985b41.png)
 
 ![image](https://user-images.githubusercontent.com/79209568/169959425-04ddd8ce-6408-48b3-b9bb-892104d2f20d.png)
 
+![image](https://user-images.githubusercontent.com/79209568/169987464-b9cb6044-51d9-437e-b96b-b2f838a05586.png)
+
 ![image](https://user-images.githubusercontent.com/79209568/169982586-536f59d1-788d-4a9f-808a-3f4a0cfe8f31.png)
 
 ![image](https://user-images.githubusercontent.com/79209568/169983086-61ac1faa-7a0b-4a3d-a7b2-3f4c24a421c2.png)
 
-![image](https://user-images.githubusercontent.com/79209568/169983204-b65e2a3b-67ce-454f-b688-21ab631963d8.png)
-
-
-
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/79209568/169985685-020d73f2-c5cb-4a76-b280-20d9bf8c3fb5.png)
