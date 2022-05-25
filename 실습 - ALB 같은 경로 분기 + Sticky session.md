@@ -4,6 +4,7 @@
 > 1. [헬스체크 경로 통일](#헬스체크-경로-통일)
 > 2. [리스너 규칙 편집](#리스너-규칙-편집)
 > 3. [결과](#결과)
+> 4. [Sticky Session이란?](#Sticky-Session이란)
 
 > ### \<실습목표>
 > - 두 아파치 서버의 헬스 체크 경로를 `/health/healthcheck.html`로 통일한다.
@@ -11,7 +12,8 @@
 > - 그 후 Sticky Session 활성화해서 같은 인스턴스로만 가도록 설정해본다.
 > - [현재까지 진행된 상황](https://github.com/Clary0122/AWS/blob/main/%EC%8B%A4%EC%8A%B5%20-%20ALB%20%EB%8C%80%EC%83%81%EA%B7%B8%EB%A3%B9%20%ED%8F%AC%ED%8A%B8%208088%EB%A1%9C%20%EB%B3%80%EA%B2%BD.md#alb-%EB%8C%80%EC%83%81%EA%B7%B8%EB%A3%B9-%ED%8F%AC%ED%8A%B8-8088%EB%A1%9C-%EB%B3%80%EA%B2%BD)
 >   
->   ![image](https://user-images.githubusercontent.com/79209568/170161753-5f31bfc4-f1b7-43b4-a6da-f1acff2104f7.png)
+>   ![image](https://user-images.githubusercontent.com/79209568/170168223-38cd1161-3d98-42ed-b6af-e65a5981cfa7.png)
+
 
 ## 헬스체크 경로 통일
 > #### EC2-2의 현재 헬스체크 경로가 `health/healthcheck2.html` 이므로 경로를 EC2-1과 같게 `health/healthcheck.html`로 변경해준다.
@@ -44,3 +46,15 @@
   ![image](https://user-images.githubusercontent.com/79209568/170165599-1f7eaf4f-e92a-4dea-9433-3642efd973c5.png)  
   
   ![image](https://user-images.githubusercontent.com/79209568/170165667-e5706027-ecc6-4129-aec0-4b91b8391005.png)
+
+<hr>
+
+## Sticky Session
+> 라운드 로빈으로 작동하는 로드벨런서에 세션을 고정해서 사용자의 경험을 지속할수 있도록 도와주는 역할
+> 다른 서버로 이동해도 사용자의 세션이 고정되어 있기 때문에 **새로고침할 때 마다 로그아웃** 되는 등의 문제를 피할 수 있다. 
+### 기간 기반 쿠기, 애플리케이션 기반 쿠키
+- 기간 기반 쿠키는 `AWSALB`로 모든 대상 그룹에서 사용되는 유일한 이름을 사용하고, 애플리케이션 기반 쿠키는 각 대상 그룹에 대해 쿠키 이름을 개별적으로 지정 가능하다.
+- **기간 기반 고정**
+  - 로드 밸런서 생성 쿠키(AWSALB)를 사용하여 대상 그룹의 동일한 
+  -  
+### Sticky Session 설정
