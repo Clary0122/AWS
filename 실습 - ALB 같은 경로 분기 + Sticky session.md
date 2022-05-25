@@ -78,3 +78,29 @@
 ![image](https://user-images.githubusercontent.com/79209568/170191610-5b7ea70f-7577-43aa-b350-a7847b176005.png)
 
 > 하나의 대상그룹에서만 설정해도 쿠키 생성되는 이유?
+  
+↓
+
+
+# 대상 그룹 두 개 X ! 하나의 대상그룹에 두 서버를 등록하고 다시 해야 함
+
+
+<hr>
+
+<hr>
+
+<hr>
+
+- 80번 포트 대상그룹 KCY-tg  
+![image](https://user-images.githubusercontent.com/79209568/170207543-7d99d6f5-9043-4f61-96af-acb3f5969cb7.png)
+- KCY-tg 에는 EC2-1, EC2-2 인스턴스가 등록 되어 있다.  
+![image](https://user-images.githubusercontent.com/79209568/170207809-79940724-1479-4aee-ba21-188197e17616.png)
+- 속성 편집 - Sticky session 생성  
+![image](https://user-images.githubusercontent.com/79209568/170208153-971a11d7-caed-4e82-8a08-421cc2fe6da4.png)
+- 결과 (1초로 변경해서 확인 함)
+![image](https://user-images.githubusercontent.com/79209568/170208515-895b4f0e-35e0-4ff7-8562-b7451d9bc6ec.png)  
+![image](https://user-images.githubusercontent.com/79209568/170208551-018a08f1-8fb1-4260-82e9-5dd400ef09c3.png)
+
+
+
+
