@@ -1,5 +1,12 @@
 # Cloud Front 생성 및 ALB 연동
 [👉 Cloud Front 정리](https://github.com/Clary0122/AWS/blob/main/Cloud%20Front.md)
+
+> #### \<INDEX>
+> 1. [Cloud Front 생성](#Cloud-Front-생성)
+> 2. [Route53 연동](#Route53-연동)
+> 3. [결과](#결과)
+
+# Cloud Front 생성
 ## 오리진 설정
 > - Cloud Front는 오리진에서 웹 콘텐츠를 가져와 이를 엣지 서버의 전 세계 네트워클 통해 최종 사용자에게 제공
 > - 하나의 배포에 대해 최대 **25개의 오리진**을 설정할 수 있고 더 높은 할당량을 요청할 수 있음
@@ -107,3 +114,29 @@
 #### 기본값 루트 객체 *-선택 사항*
 - 특정 객체가 아닌 배포 URL을 요청할 때 CF가 오리진에 요청할 객체 정보
 - 예) `http://www.example.com/` 으로 요청을 보낸 경우 오리진에서는 지정된 객체(index.html)을 응답
+
+## 배포완료
+![image](https://user-images.githubusercontent.com/79209568/170452056-10ccd6f8-26b7-4736-b457-2b8e14b3fbee.png)
+
+
+# Route53 연동
+- Route53에서 대체 도메인 이름(CNAME)으로 설정했던 `s3static.kcynds.shop`의 호스팅 영역을 생성 [생성과정](https://github.com/Clary0122/AWS/blob/main/S3%20%EC%A0%95%EC%A0%81%EC%9D%B8%20%EC%9B%B9%20%ED%98%B8%EC%8A%A4%ED%8C%85.md)
+## CF 접속 레코드 생성
+- `값`에는 CF의 도메인 이름을 넣는다
+#### CNAME 레코드
+![image](https://user-images.githubusercontent.com/79209568/170452900-2e558c94-27d5-4d41-80c6-2593f93dcf5b.png)
+#### A 레코드
+![image](https://user-images.githubusercontent.com/79209568/170455638-cc166c1a-77c9-41a8-9253-c84bf17cae12.png)
+
+
+<hr>
+
+# 결과
+- `cf.s3static.kcynds.shop` 혹은 `cf2.s3static.kcynds.shop`로 접속
+
+### 차이점
+#### CNAME 레코드
+![image](https://user-images.githubusercontent.com/79209568/170455092-24e76cb0-1b9b-4633-8eb6-f09a9dd03f1c.png)
+
+#### A 레코드
+![image](https://user-images.githubusercontent.com/79209568/170455118-5beb74c8-4f5b-409c-9590-fc16cb2cffb8.png)
