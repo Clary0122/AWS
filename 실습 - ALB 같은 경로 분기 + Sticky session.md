@@ -1,4 +1,4 @@
-# ALB 같은 경로 분기 + Sticky session 실습
+# ALB 같은 경로 분기 - Sticky session
 
 > ### \<INDEX>
 > 1. [헬스체크 경로 통일](#헬스체크-경로-통일)
@@ -12,7 +12,7 @@
 > - 그 후 Sticky Session 활성화해서 같은 인스턴스로만 가도록 설정해본다.
 > - [현재까지 진행된 상황](https://github.com/Clary0122/AWS/blob/main/%EC%8B%A4%EC%8A%B5%20-%20ALB%20%EB%8C%80%EC%83%81%EA%B7%B8%EB%A3%B9%20%ED%8F%AC%ED%8A%B8%208088%EB%A1%9C%20%EB%B3%80%EA%B2%BD.md#alb-%EB%8C%80%EC%83%81%EA%B7%B8%EB%A3%B9-%ED%8F%AC%ED%8A%B8-8088%EB%A1%9C-%EB%B3%80%EA%B2%BD)
 >   
->   ![image](https://user-images.githubusercontent.com/79209568/170168223-38cd1161-3d98-42ed-b6af-e65a5981cfa7.png)
+>   ![image](https://user-images.githubusercontent.com/79209568/170389208-d62741c6-baec-4e0b-8dd6-d8e15b175bcb.png)
 
 
 ## 헬스체크 경로 통일
@@ -34,20 +34,10 @@
   ![image](https://user-images.githubusercontent.com/79209568/170163632-8d506188-3ad3-43d9-87bb-982ee10cc533.png)
 
 ## 리스너 규칙 편집
-### 현재 ALB 리스너 규칙
-![image](https://user-images.githubusercontent.com/79209568/170164170-0d4ebb00-59e9-4aa0-b085-fe5acd71a1a8.png)
-- 경로 조건을 모두 지우고 요청 시 라우팅 경로를 각각 50%, 50%씩 나눠서 전달하도록 변경한다.
-### 변경된 ALB 리스너 규칙
-![image](https://user-images.githubusercontent.com/79209568/170165109-6dfc75fd-2fd0-4871-bfae-153a360d9fa1.png)
-
-## 결과
-- 같은 경로로 접속하면 로드밸런싱 되어 두 AZ의 인스턴스들로 50%의 확률로 분기되는 것을 확인할 수 있다.  
+![image](https://user-images.githubusercontent.com/79209568/170389473-7ff3eacb-f47b-43f7-b5ce-15d77f0cc614.png)
+- KCY-tg 에는 EC2-1, EC2-2 인스턴스가 등록 되어 있다.  
   
-  ![image](https://user-images.githubusercontent.com/79209568/170165599-1f7eaf4f-e92a-4dea-9433-3642efd973c5.png)  
-  
-  ![image](https://user-images.githubusercontent.com/79209568/170165667-e5706027-ecc6-4129-aec0-4b91b8391005.png)
-
-<hr>
+  ![image](https://user-images.githubusercontent.com/79209568/170207809-79940724-1479-4aee-ba21-188197e17616.png)
 
 ## Sticky Session
 > 라운드 로빈으로 작동하는 로드벨런서에 세션을 고정해서 사용자의 경험을 지속할수 있도록 도와주는 역할
@@ -76,31 +66,6 @@
 
 ![image](https://user-images.githubusercontent.com/79209568/170189510-c404a667-dbea-43e5-aa2f-4ecfb83f5585.png)  
 ![image](https://user-images.githubusercontent.com/79209568/170191610-5b7ea70f-7577-43aa-b350-a7847b176005.png)
-
-> 하나의 대상그룹에서만 설정해도 쿠키 생성되는 이유?
-  
-↓
-
-
-# 대상 그룹 두 개 X ! 하나의 대상그룹에 두 서버를 등록하고 다시 해야 함
-
-
-<hr>
-
-<hr>
-
-<hr>
-
-- 80번 포트 대상그룹 KCY-tg  
-![image](https://user-images.githubusercontent.com/79209568/170207543-7d99d6f5-9043-4f61-96af-acb3f5969cb7.png)
-- KCY-tg 에는 EC2-1, EC2-2 인스턴스가 등록 되어 있다.  
-![image](https://user-images.githubusercontent.com/79209568/170207809-79940724-1479-4aee-ba21-188197e17616.png)
-- 속성 편집 - Sticky session 생성  
-![image](https://user-images.githubusercontent.com/79209568/170208153-971a11d7-caed-4e82-8a08-421cc2fe6da4.png)
-- 결과 (1초로 변경해서 확인 함)
-![image](https://user-images.githubusercontent.com/79209568/170208515-895b4f0e-35e0-4ff7-8562-b7451d9bc6ec.png)  
-![image](https://user-images.githubusercontent.com/79209568/170208551-018a08f1-8fb1-4260-82e9-5dd400ef09c3.png)
-
 
 
 
