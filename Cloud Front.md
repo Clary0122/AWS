@@ -35,4 +35,4 @@
 - 유저로 응답
 
 ## 실습
-#### [👉 CF 생성 후 ALB 연동 - Route53 사용]()
+#### [👉 CF 생성 후 ALB 연동 - Route53 사용](https://github.com/Clary0122/AWS/blob/main/%EC%8B%A4%EC%8A%B5%20-%20CF%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20ALB%20%EC%97%B0%EB%8F%99.md)
