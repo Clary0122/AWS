@@ -143,4 +143,16 @@
 
 
 - 현재 ALB 리스너가 80 포트로 들어오면 8088로 리다이렉팅 되고 다시 80 포트로 포워딩 되는 상태로 설정 되어 있다.
-- 그렇기 때문에 네트워크 통신 과정에 
+- 그렇기 때문에 CF DNS를 들렀다가 리다이렉트 되어 오리진의 ALB를 거치는 상황으로 생각된다.
+- ALB의 리스너를 수정한다.  
+  ![image](https://user-images.githubusercontent.com/79209568/170645138-e8e3db11-7567-45d7-b6e0-547d87c3284b.png)
+
+- Route53에 매핑한 `cf.s3static.kcynds.shop`를 접속해서 네트워크 통과 경로를 보면 ALB DNS를 거치지 않고 CF만 간 것을 확인할 수 있다.
+  > WHY????
+  > - 해당 경로의 하위 경로는 CF를 거치는데 왜 해당 경로는 index 뜨지만 403 에러가 나는지? (Error From CF)  
+  >   - 하위 경로 잘 뜸  
+  >     ![image](https://user-images.githubusercontent.com/79209568/170646335-35723d86-3384-4f7a-bd3b-905f14b7f3b4.png)
+  >   - 해당 경로 오류  
+  >     ![image](https://user-images.githubusercontent.com/79209568/170646464-139a6cb3-0e87-4ed1-be86-986dcbf4c72b.png)
+
+
