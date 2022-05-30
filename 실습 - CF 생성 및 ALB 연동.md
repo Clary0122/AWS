@@ -103,7 +103,7 @@
 - 방화벽에 의해 거절된 요청은 403
 
 #### 대체 도메인 이름(CNAME) *-선택 사항*
-![image](https://user-images.githubusercontent.com/79209568/170445341-399b8e43-dfca-4b82-83bd-9021376b5453.png)
+![image](https://user-images.githubusercontent.com/79209568/170897293-87794f7f-e157-435f-afea-869e8d530601.png)
 
 - CF 생성시 할당 받는 도메인 이름 대신 객체의 URL에 사용할 도메인 이름을 지정
 
@@ -126,7 +126,7 @@
 #### CNAME 레코드
 ![image](https://user-images.githubusercontent.com/79209568/170452900-2e558c94-27d5-4d41-80c6-2593f93dcf5b.png)
 #### A 레코드
-![image](https://user-images.githubusercontent.com/79209568/170455638-cc166c1a-77c9-41a8-9253-c84bf17cae12.png)
+![image](https://user-images.githubusercontent.com/79209568/170897411-d2129a7d-d1e6-4d77-b6b3-690eafac4ac0.png)
 
 
 <hr>
@@ -140,7 +140,6 @@
 
 #### A 레코드
 ![image](https://user-images.githubusercontent.com/79209568/170455118-5beb74c8-4f5b-409c-9590-fc16cb2cffb8.png)
-
 
 - 현재 ALB 리스너가 80 포트로 들어오면 8088로 리다이렉팅 되고 다시 80 포트로 포워딩 되는 상태로 설정 되어 있다.
 - 그렇기 때문에 CF DNS를 들렀다가 리다이렉트 되어 오리진의 ALB를 거치는 상황으로 생각된다.
