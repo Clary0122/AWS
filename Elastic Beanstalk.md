@@ -186,6 +186,7 @@ Github의 브랜치 개념과 같음.
 ### 리소스에 태그 지정
 - EB 애플리케이션에 태그를 지정할 수 있다. 각 애플리케이션에 최대 50개의 태그를 추가할 수 있다.
 
+<hr>
 
-[[Elastic Beanstalk 워크샵 진행 정리]()]
-[[Elastic Beanstalk 워크샵 URL](https://catalog.us-east-1.prod.workshops.aws/workshops/3fd6c80b-39f2-4534-b69c-c400aed50c67/ko-KR/workshop-setting)]
+- [Elastic Beanstalk 워크샵 진행 정리]()  
+- [Elastic Beanstalk 워크샵 URL](https://catalog.us-east-1.prod.workshops.aws/workshops/3fd6c80b-39f2-4534-b69c-c400aed50c67/ko-KR/workshop-setting)]
