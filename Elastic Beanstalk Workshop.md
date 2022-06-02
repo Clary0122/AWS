@@ -90,6 +90,9 @@
   - 오류 시 `Set-ExecutionPolicy RemoteSigned` - `Y`
     ![image](https://user-images.githubusercontent.com/79209568/171584083-2f16b05b-0d0f-4b2a-b8a0-b4c434cb6793.png)
 
+## 네트워크 구성
+> #### 목표 아키텍처
+> ![image](https://user-images.githubusercontent.com/79209568/171586003-97c0e589-1963-493e-a7e8-b49bf1287199.png)
 
 
 
