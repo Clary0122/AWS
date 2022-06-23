@@ -31,3 +31,35 @@
 - `cdk.json` : 툴킷에 앱을 실행하는 방법
 - `tsconfig.json` : 해당 프로젝트의 typescript 구성
 - `node_modules` : npm에서 유지 관리하며 프로젝트의 모든 종속성을 포함
+
+### 메인 스택 : cdk-workshop-stack.ts
+![image](https://user-images.githubusercontent.com/79209568/175228256-1906e5ab-7011-4ab0-b9a7-6872b7652a30.png)
+- SQS Queue
+- SNS Topic
+- 항목에 게시된 메시지를 수신하기 위해 큐 구독. (`topic.addSubscription(new subs.SqsSubscription(queue))`
+
+## CDK Synth
+- CDK 앱은 사실상 코드를 사용하는 인프라의 정의일 뿐이다.
+- synth 로 앱을 실행하면 앱에 정의된 각 스택에 대한 CloudFormation 템플릿이 생성된다.
+  ```
+  cdk synth
+  ```
+
+## CDK Deploy
+### Environment Bootstrap
+- CDK 앱을 환경(계정/리전)에 처음 배포할 때 Bootstrap stack을 설치한다.
+- 이 스택에는 툴킷 작업에 사용되는 리소스가 포함
+  ```
+  cdk bootstrap
+  ```
+  ![image](https://user-images.githubusercontent.com/79209568/175243964-332c6d62-7f4c-4edd-89dd-bd71c1c04c23.png)
+
+### Deploy
+![image](https://user-images.githubusercontent.com/79209568/175250059-e69ebff1-95bd-4615-8c31-143067162b9b.png)
+
+- 앱 배포에 보안에 민감한 변경 사항이 포함되어 있다는 경고
+- 토픽이 큐로 메시지를 보내도록 허용해서 스택을 배포하고 리소스를 만들도록 `y`를 입력한다.
+
+![image](https://user-images.githubusercontent.com/79209568/175251935-47e01bd9-ce22-403e-905b-582867c8dfdb.png)
+
+- CDK 앱은 AWS CloudFormation을 통해 배포됩니다. 각 CDK 스택은 CloudFormation 스택과 1:1로 매핑된다.
