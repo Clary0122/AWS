@@ -82,3 +82,34 @@
 - Test 클릭 후 실행 완료될 때까지 기다린다. 그 후 Execution result의 Response 확인  
   
   ![image](https://user-images.githubusercontent.com/79209568/175487030-8b3cc4bf-ee99-4543-87be-47374d7a92e1.png)
+
+## CDK Watch
+> `cdk deploy --hotswap`과 `cdk watch`를 통해 개인 구축 시간을 단축할 수 있는 방법
+- 위의 실습까지는 스택을 업데이트할 수 있는 유일한 도구가 `cdk deploy`이다.
+- 그러나 `cdk deploy`는 CloudFormation 스택을 배포하고 디스크에서 bootstrap 버킷으로 lambda 디렉토리를 업로드해야 하므로 시간이 걸린다.
+- 람다 코드만 변경한다면 CloudFormation 스택을 업데이트할 필요 없음
+
+### Full deployment
+- 전체 배포를 수행해서 시간이 얼마나 걸리는 지 확인해본다.  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/175499100-3558cc6c-ff95-4c43-a533-02d451cc892e.png)
+  - 총 배포 시간 32.57초  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/175499302-1c285cb5-e1c3-4051-b26d-7b3851a58506.png)
+
+### Hotswap deployment
+- 배포 속도를 높이기 위해 의도적으로 CloudFormation 스택에 드리프트를 도입하는 것이므로 개발 목적으로만 사용하는 것이 좋다. 프로덕션 배포에 핫스왑을 사용하면 안된다!
+- 핫스왑을 이용한 배포를 수행해서 시간이 얼마나 걸리는 지 확인해본다.
+  
+  ![image](https://user-images.githubusercontent.com/79209568/175499820-9c7ef1e9-c890-40ab-b7fa-23144b8162a3.png)
+
+  ```
+  cdk deploy --hotswap
+  ```
+  - 총 배포 시간 2.55초  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/175500111-5b81a5e7-54af-4510-9e7c-f7daa59258b6.png)
+  
+  - 코드가 직접 바꼈는지 람다 콘솔에서 확인 → 바뀜!
+  
+  ![image](https://user-images.githubusercontent.com/79209568/175500546-982a59fb-3f20-4a43-a6f5-1ec31d6786fb.png)
