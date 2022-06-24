@@ -1,5 +1,5 @@
-# CDK Workshop
-> [workshop url](https://cdkworkshop.com/)
+# CDK Workshop - New Project
+> [Workshop URL](https://cdkworkshop.com/)
 
 ## CDK
 - Cloud Development Kit
@@ -26,7 +26,7 @@
 ![image](https://user-images.githubusercontent.com/79209568/175210072-e31c6d68-86cb-4800-994a-01cb48f2af2f.png)
 
 - `bin/cdk-workshop-stack.ts` : CDK 애플리케이션의 메인 스택이 정의 되는 곳
-- `bin/cdk-workshop.ts` : CKD 응용 프로그램의 진입점. ckd-workshop-stack.ts 파일에 정의된 스택을 로드
+- `bin/cdk-workshop.ts` : CDK 응용 프로그램의 진입점. cdk-workshop-stack.ts 파일에 정의된 스택을 로드
 - `package.json` : npm 모듈 매니페스트. 여기에는 앱 이름, 버전, 종속성 및 "watch" 및 "build"와 같은 빌드 스크립트 정보가 포함 됨. 
 - `cdk.json` : 툴킷에 앱을 실행하는 방법
 - `tsconfig.json` : 해당 프로젝트의 typescript 구성
@@ -47,14 +47,18 @@
 
 ## CDK Deploy
 ### Environment Bootstrap
-- CDK 앱을 환경(계정/리전)에 처음 배포할 때 Bootstrap stack을 설치한다.
-- 이 스택에는 툴킷 작업에 사용되는 리소스가 포함
   ```
   cdk bootstrap
   ```
+- CDK 앱을 환경(계정/리전)에 처음 배포할 때 Bootstrap stack을 설치한다.
+- 이 스택에는 툴킷 작업에 사용되는 리소스가 포함
+
   ![image](https://user-images.githubusercontent.com/79209568/175243964-332c6d62-7f4c-4edd-89dd-bd71c1c04c23.png)
 
 ### Deploy
+  ```
+  cdk deploy
+  ```
 ![image](https://user-images.githubusercontent.com/79209568/175250059-e69ebff1-95bd-4615-8c31-143067162b9b.png)
 
 - 앱 배포에 보안에 민감한 변경 사항이 포함되어 있다는 경고
