@@ -63,3 +63,26 @@
   - 경로를 파티션 키로 하는 DynamoDB 테이블을 정의
   - `lambda/hitcounter.handler` 코드에 바인딩된 lambda 함수를 정의
   - lambda의 환경변수를 자원의 DOWNSTREAM_FUNCTION_NAME 및 HITS_TABLE_NAME에 연결
+
+### hit counter 사용
+#### cdk 스택에 hit counter 추가
+- `lib/cdk-workshop-stack.ts`에 코드 추가  
+  ![image](https://user-images.githubusercontent.com/79209568/179706299-8c10b739-78d2-4c4d-8389-62d1b9e04e5f.png)
+- API Gateway 핸들러를 `hello` 대신 `helloWithCounter.handler`로 변경함.
+- 이는 기본적으로 엔드포인트가 히트할 때마다 API Gateway가 hit counter 핸들러로 요청을 라우팅하여 히트 카운터를 기록하고 hello 함수로 릴레이한다는 것을 의미한다.
+- 그 후 응답은 역순으로 사용자에게 다시 전달 됨.
+
+#### cdk deploy
+```
+cdk deploy
+```
+- 배포 완료 후 output에서 엔드포인트 확인  
+  ![image](https://user-images.githubusercontent.com/79209568/179707846-f32edaf7-e190-44fb-9c09-e040a18d787d.png)
+
+#### Test
+- curl 또는 웹 브라우저를 사용해서 엔드포인트를 hit 해본다. (`-i`를 사용하여 HTTP 응답 필드 및 상태 코드를 표시해본다.)
+  ```
+  curl -i https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/
+  ```
+- 오류 남  
+  ![image](https://user-images.githubusercontent.com/79209568/179708509-bbe93df9-8e63-4134-aac0-436ede7b2fac.png)
