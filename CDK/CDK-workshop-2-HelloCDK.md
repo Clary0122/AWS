@@ -118,7 +118,64 @@
 - cdk watch는 `cdk deploy`, `cdk deploy --hotswap`과는 달리 코드와 asset을 모니터링하여 변경 사항이 감지되면 자동으로 배포를 수행한다.
 - 기본적으로 `--hotswap` 플래그를 사용한다. `--hotswap` 플래그는 변경 사항을 검사하고 이러한 변경 사항을 핫 스왑할 수 있는지 여부를 결정한다.
 - `cdk watch --no-hotswap`으로 핫스왑 동작을 비활성화한다.
+- cdk watch 명령이 실행될 때 cdk.json 파일의 "watch" 설정에 따른다.
+  - "include"와 "exclude" 두 개의 하위 키가 있고, 각 하위 키는 단일 문자열이거나 문자열 배열일 수 있다.
+  - 각 항목은 cdk.json 파일의 위치와 관련된 경로로 해석된다.
+  
+  ![image](https://user-images.githubusercontent.com/79209568/179669306-6d78651a-e0bc-4da4-9541-02b2b3b6db31.png)
+
+- 현재 샘플 앱에는 "watch" 설정이 포함되어 있다. 'hello.js' 파일을 관찰하고 이싶으니 "exclude" 목록에서 `**/*.js`를 제외시킨다.
+  ![image](https://user-images.githubusercontent.com/79209568/179669566-dc4716f8-12a5-4233-9c2d-26a9cb50c4e1.png)
+
+#### cdk watch 실행
+```
+cdk watch
+```
+- watch를 부르면 초기 배포가 트리거되고 즉시 cdk.json에서 지정한 파일을 관찰하기 시작한다.
+  ![image](https://user-images.githubusercontent.com/79209568/179669844-143903f6-9d31-4865-9c9e-330271f3abf5.png)
+
+#### hello.js 파일 내용 변경
+- 파일 내용 변경 후 저장  
+  ![image](https://user-images.githubusercontent.com/79209568/179670002-fdb178ed-89f0-4851-a9f1-b31565ce84ab.png)
+
+- 변경 사항을 저장하면 cdk watch는 파일이 변경되었음을 인식하고 새 배포를 트리거 한다.
+  ![image](https://user-images.githubusercontent.com/79209568/179670224-5814a867-b476-45a5-9e0f-d6a8d1fdbc85.png)
+- 핫 스왑으로 CloudFormation 배포를 무시하고 대신 Lambda 서비스에 직접 배포한다.
+
+### API Gateway
+- 이번에는 기능 앞에 API 게이트웨이를 추가한다.
+- API Gateway는 인터넷에 있는 HTTP 클라이언트로 칠 수 있는 공개 HTTP 엔드포인트를 노출한다.
+- API 루트에 마운트 된 람다 프록시 통합을 사용한다. 즉 URL 경로에 대한 모든 요청이 람다 함수에 직접 프록시되고 함수의 응답이 사용자에게 다시 반환된다.
 
 
+#### LambdaRestApi 추가
+- `lib/cdk-workshop-stack.ts` 파일에 API의 엔드포인틀르 정의하고 Lambda 함수와 연결한다.
+  ![image](https://user-images.githubusercontent.com/79209568/179671714-077999e7-5833-4d9a-a948-795c88e9dfa0.png)
 
+#### cdk diff
+```
+cdk diff
+```
+- 리소스 12개 추가 됨  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/179672137-cd2ea3e4-13ba-4f2d-bcde-f8c0d004b4cd.png)
+
+#### cdk deploy
+```
+cdk deploy
+```
+- 배포가 완료되면 API Gateway 구문에 의해 자동으로 출력되는 API Gateway 엔드포인트의 URL을 포함한 스택 출력이 보인다.  
+  ![image](https://user-images.githubusercontent.com/79209568/179673137-ce8c8b59-2b02-4a07-8c81-80a90be3701d.png)
+
+#### 앱 테스트
+- `curl`을 통해 엔드포인트를 hit 테스트 해본다.
+
+  ```
+  curl https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/prod/
+  ```
+  ![image](https://user-images.githubusercontent.com/79209568/179673471-db1e31a5-6e8b-4af9-b283-bd8c0fc53f22.png)
+
+- 웹브라우저에서도 확인 가능  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/179673605-175020ba-3908-4315-99e8-4e73818b5e79.png)
 
