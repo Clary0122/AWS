@@ -113,3 +113,12 @@
   - 코드가 직접 바꼈는지 람다 콘솔에서 확인 → 바뀜!
   
   ![image](https://user-images.githubusercontent.com/79209568/175500546-982a59fb-3f20-4a43-a6f5-1ec31d6786fb.png)
+
+### cdk watch
+- cdk watch는 `cdk deploy`, `cdk deploy --hotswap`과는 달리 코드와 asset을 모니터링하여 변경 사항이 감지되면 자동으로 배포를 수행한다.
+- 기본적으로 `--hotswap` 플래그를 사용한다. `--hotswap` 플래그는 변경 사항을 검사하고 이러한 변경 사항을 핫 스왑할 수 있는지 여부를 결정한다.
+- `cdk watch --no-hotswap`으로 핫스왑 동작을 비활성화한다.
+
+
+
+
