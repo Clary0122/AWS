@@ -94,5 +94,7 @@ cdk deploy
 ### 람다 콘솔
 - AWS Lambda 서비스 콘솔을 열고 **HitCounter** 함수 클릭  
   ![image](https://user-images.githubusercontent.com/79209568/179885976-b987caea-f5ff-4e1f-ab74-d4bdeb0eaa91.png)
-
-![image](https://user-images.githubusercontent.com/79209568/179886111-c1d53ec6-75a8-4f88-b610-0d824331b171.png)
+- 모니터링의 CloudWatch에서 로그 보기 클릭  
+  ![image](https://user-images.githubusercontent.com/79209568/179886111-c1d53ec6-75a8-4f88-b610-0d824331b171.png)
+- 가장 최근의 로그에서 "errorMessage" 부분을 확인한다.
+  ![image](https://user-images.githubusercontent.com/79209568/180106682-06cba065-c6a5-452c-8c63-0899e8c73d01.png)
