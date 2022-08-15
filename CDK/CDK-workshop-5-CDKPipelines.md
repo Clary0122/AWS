@@ -94,6 +94,34 @@ npx cdk deploy
   
   ![image](https://user-images.githubusercontent.com/79209568/184652610-e643df39-68d7-4767-8ab1-17c165c246cf.png)
 
+## pipeline에 애플리케이션 추가
+### Stage 생성
+- 현재 시점에서는 모든 커밋에 대해 자동으로 업데이트되는 CDK 파이프라인이 작동하는 것이 전부다.
+- 애플리케이션을 배포할 파이프라인에 stage를 추가해야한다.
+- `lib/pipeline-stage.ts` 파일을 생성한다.  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/184654282-ca086e41-8b74-432d-aa2a-393deb5b43c6.png)
+  - 새로운 stage를 선언하고 그 단계에서 애플리케이션 스택을 인스턴스화 하는 것이다.
+  - 해당 오류는 **애플리케이션 스택이 파이프라인에 의해 배포되도록 구성되지 않았기 때문**이다. `lib/cdk-workshop-stack.ts`를 다음과 같이 변경한다.  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/184655234-5adef702-3b8f-4b52-9b27-59bf6513f0c7.png)
+  - 해당 스택의 scope 매개 변수가 구성 트리에서 app의 자식이어야 하는 cdk.App으로 정의 되어있었다.
+  - 스택이 파이프라인에 의해 배포되고 있기 때문에 더 이상 app의 하위 항목이 아니므로 해당 유형을 Construct로 변경해야 한다.
 
+### Pipeline에 stage 추가
+- `lib/pipeline-stack.ts`에 다음 코드를 추가하여 파이프라인에 stage를 추가한다.  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/184656409-ea5e9c24-abb2-44bd-a54c-3db2700bf4d4.png)
+  - `WorkshopPipelineStage` 인스턴스를 가져오고 생성한다. 나중에 이 단계를 여러 번 인스턴스화할 수 있다. (예, 운영 배포 및 별도의 개발/테스트 배포)
+  - 그 후 해당 stage를 파이프라인에 추가한다. (`pipeline.addStage(deploy)`)
+  - CDK 파이프라인의 stage는 특정 환경에 함께 배포해야하는 하나 이상의 CDK 스택 집합을 나타낸다.
 
-
+## Commit/Deploy
+- 변경사항을 확정하고 레포에 푸시한다.
+  ```
+  git add .
+  git commit -am "Add deploy stage to pipeline" && git push
+  ```
+- CodePipeline 콘솔에서 확인  
+  
+  ![screencapture-us-west-1-console-aws-amazon-codesuite-codepipeline-pipelines-WorkshopPipeline-view-2022-08-16-00_03_00](https://user-images.githubusercontent.com/79209568/184661440-50f6e42f-b0b0-4ee6-b769-8cdb4fe30011.png)
