@@ -65,12 +65,35 @@ npx cdk deploy
   ```
   git push --set-upstream origin master
   ```
-- 여기서 CodeCommit은 자격증명을 요청한다. 한 번만 제공하면 된다.
+- 여기서 CodeCommit은 자격증명을 요청한다. 한 번만 제공하면 된다. (안 물어봄..)
 
 ### 결과
 - CodeCommit 콘솔에서 push 한 코드들이 있는 것을 확인할 수 있다.  
   
   ![image](https://user-images.githubusercontent.com/79209568/184648069-a6482bef-1967-43ee-8b07-859d7ddf1f26.png)
+
+## Pipeline 생성
+### 빈 pipeline 정의
+- 파이프라인의 기본을 정의할 준비가 완료되었다.
+- `lib/pipeline-stack.ts` 파일을 다음과 같이 편집한다.  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/184649753-0cb820fa-383c-40e6-abd6-cb77e879f369.png)
+#### 구성 요소  
+- `new CodePipeline()` : 파이프라인 초기화. 모든 파이프라인은 최소 다음의 필수 요소가 필요하다.
+  - `synth()` : 파이프라인의 synthAction은 원본에서 종속성을 설치하고 CDK 애플리케이션을 빌드하고 동기화하는 데 필요한 명령을 설명한다. 이것은 항상 `synth` 명령으로 끝나야하며, npm 기반 프로젝트의 경우 항상 `npx cdk synth`여야 한다.
+  - synth 단계의 입력은 CDK 소스 코드가 저장되는 저장소를 지정한다.
+
+### pipeline 배포 및 결과 확인
+- 파이프라인을 가동하려면 변경사항을 적용하고 마지막 CDK 구현을 실행하면 된다.
+- CDK 파이프라인은 소스 repo의 각 커밋에 대해 자동 업데이트되므로 이 명령을 한 번만 실행한다.
+  ```
+  git commit -am "MESSAGE" && git push
+  npx cdk deploy
+  ```
+- 배포가 완료되면 CodePipeline 콘솔로 이동하여 새 파이프라인을 확인한다.   
+  
+  ![image](https://user-images.githubusercontent.com/79209568/184652610-e643df39-68d7-4767-8ab1-17c165c246cf.png)
+
 
 
 
