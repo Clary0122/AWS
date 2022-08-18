@@ -145,13 +145,35 @@ npx cdk deploy
   ![image](https://user-images.githubusercontent.com/79209568/185309317-95aa0baf-5fc1-49b0-b96a-54d44ec2a961.png)
   - `CDKToolit` : 통합 CDK 스택.(부트스트랩 계정에서 항상 확인 가능) - 무시해도 됨
   - `WorkshopPipelineStack` : 생성했던 파이프라인을 선언하는 스택. - 당장 필요하지 않음
-  - `Deploy-WebService` : **이 스택에 애플리케이션 존재**
+  - `Deploy-WebService` : **이 스택에 애플리케이션 존재**. 
+    - 해당 스택에서 '출력' 탭 클릭.  
+      
+      ![image](https://user-images.githubusercontent.com/79209568/185311009-1db94b1d-1bac-42c0-9837-bcfabdd999df.png)
+    - 중복 된 값 쌍 두 개씩 총 네 개의 엔드포인트 존재
+      - EndpointXXXXXX, ViewerHitCounterViewerEndpointXXXXXX : Cloudformation에서 생성한 기본 값
+      - GatewayUrl, TableViewerUrl : 직접 선언한 출력 값
 
+### 유효성 검사 테스트 추가
+- 애플리케이션 배포를 완료했고 CD 파이프라인을 완성시키기 위해 테스트가 필요하다.
+- 엔드포인트가 살아 있는지 확인하기 위해 엔드포인트를 ping하는 간단한 테스트를 진행한다.
+- `lib/pipline-stack.ts`에 다음 내용을 추가한다.  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/185319457-35b197cb-82ad-463c-a230-a05cdd27adf9.png)
+  - CDK 파이프라인에서 `deployStage.addPost()`를 통해 배포 후 단계를 추가한다.
+  - 배포 Stage에서 TableViewer 엔드포인트와 API Gateway 엔드포인트를 각각 테스트하는 두 가지 작업을 추가한다. 
+  - `ENDPOINT_URL`을 아직 설정하지 않은 것을 확인할 수 있다. 아직 이 스택에 노출되지 않았기 때문이므로 `lib/pipeline-stage.ts`를 다음과 같이 수정하여 노출 시키도록 한다.  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/185324923-97303a29-eda0-41d5-976a-8069ebbc4222.png)
+- 파이프라인 스택의 stackOutput을 가져와 `lib/pipline-stack.ts`의 작업에 다음과 같은 값을 추가해준다.  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/185326858-8fdc2cf0-37dc-4874-a739-6eb15b2332c3.png)
 
-
-
-
-
-
-
+### Commit and View
+- 변경 내용을 커밋하고 파이프라인이 앱을 다시 배포할 때 까지 기다리면 다음 코드 파이프라인 콘솔로 다시 이동하면 배포 단계 내에 두 가지 테스트 작업이 포함된 것을 확인할 수 있다.
+  - 테스트 작업 배포 전의 Deploy Stage  
+    
+    ![image](https://user-images.githubusercontent.com/79209568/185328636-0c133b8a-dba1-476e-94fc-85715c2b4df4.png)
+  - 테스트 작업 배포 후의 Deploy Stage  
+    
+    ![image](https://user-images.githubusercontent.com/79209568/185335340-380e88cb-f197-43bd-a3fc-697fd3086c20.png)
 
