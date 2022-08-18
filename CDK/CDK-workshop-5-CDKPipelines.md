@@ -116,7 +116,7 @@ npx cdk deploy
   - 그 후 해당 stage를 파이프라인에 추가한다. (`pipeline.addStage(deploy)`)
   - CDK 파이프라인의 stage는 특정 환경에 함께 배포해야하는 하나 이상의 CDK 스택 집합을 나타낸다.
 
-## Commit/Deploy
+### Commit/Deploy
 - 변경사항을 확정하고 레포에 푸시한다.
   ```
   git add .
@@ -125,3 +125,33 @@ npx cdk deploy
 - CodePipeline 콘솔에서 확인  
   
   ![screencapture-us-west-1-console-aws-amazon-codesuite-codepipeline-pipelines-WorkshopPipeline-view-2022-08-16-00_03_00](https://user-images.githubusercontent.com/79209568/184661440-50f6e42f-b0b0-4ee6-b769-8cdb4fe30011.png)
+
+## Pipeline 다듬기
+### 엔드포인트 가져오기
+- 애플리케이션이 파이프라인으로 배포되고 있기 때문에 애플리케이션의 엔드포인트(TalbeViewer 및 API 게이트웨이)를 쉽게 찾을 방법이 없으므로 호출할 수 없다.
+- 코드를 조금 더 명확하게 추가하도록 한다.
+- `lib/cdk-workshop-stack.ts`를 다음과 같이 수정한다.  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/185305245-ebad6292-8c68-44f4-b067-f3ec301c2c3b.png)
+  - `hcViewerUrl`과 `hcEndpoint` 출력 값을 추가하여 필요한 엔드포인트를 HitCounter 애플리케이션에 노출시킨다.
+  - 코어 construct인 `CfnOutput`을 사용하여 Cloudformation 스택 출력으로 선언하고 있다.
+- git push 진행
+  ```
+  git add .
+  git commit -am "MESSAGE" && git push
+  ```
+- Cloudformaiton 스택 확인  
+  
+  ![image](https://user-images.githubusercontent.com/79209568/185309317-95aa0baf-5fc1-49b0-b96a-54d44ec2a961.png)
+  - `CDKToolit` : 통합 CDK 스택.(부트스트랩 계정에서 항상 확인 가능) - 무시해도 됨
+  - `WorkshopPipelineStack` : 생성했던 파이프라인을 선언하는 스택. - 당장 필요하지 않음
+  - `Deploy-WebService` : **이 스택에 애플리케이션 존재**
+
+
+
+
+
+
+
+
+
