@@ -143,7 +143,7 @@ npx cdk deploy
 - Cloudformaiton 스택 확인  
   
   ![image](https://user-images.githubusercontent.com/79209568/185309317-95aa0baf-5fc1-49b0-b96a-54d44ec2a961.png)
-  - `CDKToolit` : 통합 CDK 스택.(부트스트랩 계정에서 항상 확인 가능) - 무시해도 됨
+  - `CDKToolkit` : 통합 CDK 스택.(부트스트랩 계정에서 항상 확인 가능) - 무시해도 됨
   - `WorkshopPipelineStack` : 생성했던 파이프라인을 선언하는 스택. - 당장 필요하지 않음
   - `Deploy-WebService` : **이 스택에 애플리케이션 존재**. 
     - 해당 스택에서 '출력' 탭 클릭.  
